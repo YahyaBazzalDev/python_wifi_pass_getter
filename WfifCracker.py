@@ -6,7 +6,7 @@ if NetInput == "":
 network_name = NetInput
 result = subprocess.run(['netsh', 'wlan', 'show', 'profile', network_name, 'key=clear'], stdout=subprocess.PIPE)
 output = result.stdout.decode()
-print(f"Network Password: {output}")
+print(f"Network Info: {output}")
 for line in output.split('\n'):
     if "Key Content" in line:
         print(f"The password is: {result.stdout.decode().split(':')[1].strip()}")
